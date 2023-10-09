@@ -1,7 +1,8 @@
 import express from "express";
 import cors from "cors";
 import routes from "./routers/routes";
-import ShowTransaction from "./controllers/trasactionsDetails";
+import ShowTransaction from "./controllers/decodeTransaction";
+import { TestParseURL } from "./controllers/createTransaction";
 
 const app = express()
 
@@ -11,5 +12,7 @@ app.use(routes)
 
 
 app.listen(4000, ()=> console.log('online'))
+
+TestParseURL()
 
 ShowTransaction()

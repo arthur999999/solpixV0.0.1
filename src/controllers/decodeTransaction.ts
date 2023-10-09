@@ -41,7 +41,16 @@ export default async function ShowTransaction() {
 
       let trasactionDetails = {
          mint: (new PublicKey(decodeInstru.keys?.mint.pubkey)).toString(),
-         owner: (new PublicKey(decodeInstru.keys?.owner.pubkey)).toString()
+         destination: (new PublicKey(decodeInstru.keys?.destination.pubkey)).toString(),
+         owner: (new PublicKey(decodeInstru.keys?.owner.pubkey)).toString(),
+         amount: decodeInstru.data.amount,
+         decimals: decodeInstru.data.decimals
+      }
+
+      console.log(Number(trasactionDetails.amount)/ (10**trasactionDetails.decimals))
+
+      if(trasactionDetails.mint !== usdc) {
+         throw new Error("only USDC trasactions")
       }
 
       console.log(trasactionDetails)
