@@ -1,12 +1,13 @@
 import axios from "axios";
 import { Request, Response } from "express";
+import { PostParseURL } from "./parseURLTransaction";
 
 export async function PostUrl(req: Request, res: Response) {
 
 
     const {url} = req.body;
 
-    if (!url) {
+    if (!url || (typeof url) !== "string") {
         res.status(400).send("Invalid Body");
         return;
     }
@@ -26,4 +27,15 @@ export async function PostUrl(req: Request, res: Response) {
         return;
     }
    
+}
+
+export async function ParseURL(req: Request, res: Response) {
+    const {url} = req.body;
+
+    if (!url || (typeof url) !== "string") {
+        res.status(400).send("Invalid Body");
+        return;
+    }
+
+    PostParseURL(url)
 }

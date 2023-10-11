@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import routes from "./routers/routes";
 import ShowTransaction from "./controllers/decodeTransaction";
-import { TestParseURL } from "./controllers/createTransaction";
+import { TestParseURL } from "./controllers/parseURLTransaction";
 
 const app = express()
 

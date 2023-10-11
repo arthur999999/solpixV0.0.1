@@ -4,11 +4,11 @@ let str1 = "solana:GvHeR432g7MjN9uKyX3Dzg66TqwrEWgANLnnFZXMeyyj?amount=1&spl-tok
 
 const usdc = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
 
-export function TestParseURL() {
+export function PostParseURL(url: string) {
 
     try {
         
-        const transaction: any = parseURL(str1);
+        const transaction: any = parseURL(url);
         const parsedTransaction: TransferRequestURL = transaction;
         const amount = parsedTransaction.amount?.toNumber();
         if(!amount || amount <= 0){
