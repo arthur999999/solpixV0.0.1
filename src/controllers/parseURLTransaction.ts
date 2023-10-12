@@ -19,6 +19,8 @@ export function PostParseURL(url: string) {
             throw new Error("Only USDC transactions")
         }
 
+        return parsedTransaction;
+
     } catch (error) {
         console.log(error)
     }
