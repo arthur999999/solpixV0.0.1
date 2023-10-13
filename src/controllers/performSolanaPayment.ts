@@ -55,6 +55,7 @@ export async function verifyTransferPayment(txid: string , url: TransferRequestU
         const interval = setInterval(check, 5000)
 
         async function check() {
+            console.log('not payed')
             if(confirmPayed){
                 clearInterval(interval)
                 return;
@@ -76,12 +77,12 @@ export async function verifyTransferPayment(txid: string , url: TransferRequestU
             if(closed > 60 || payed) {
                 clearInterval(interval)
             }
-            console.log('not payed')
+            
         }
         
         return
     } catch (error) {
-        throw error
+        console.log(error)
     }
    
 }

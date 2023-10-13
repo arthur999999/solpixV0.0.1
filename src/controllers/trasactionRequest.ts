@@ -76,9 +76,8 @@ export async function ParseURL(req: Request, res: Response) {
         const pix = await CreatePix(300, cpf, name, value)
         res.status(200).send(pix);
         await verifyTransferPayment(pix.responsePix.txid, parsedUrl, keyPairUser)
-        return;
     } catch (error) {
-        throw error
+        console.log(error)
     }
 
     
