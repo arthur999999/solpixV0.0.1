@@ -4,7 +4,7 @@ const options = {
     sandbox: false,
 	client_id: 'Client_Id_89c29e19b8a719ce14b1d7539e56f39ddaf4bb6d',
 	client_secret: 'Client_Secret_b8d216f0ffa600d3616f5d834b5a4fd466f55790',
-	certificate: __dirname + '/producao-502074-solpix.p12',
+	certificate: 'producao-502074-solpix.p12',
 }
 
 const efipay = new EfiPay(options)
