@@ -37,9 +37,8 @@ export async function PostUrl(req: Request, res: Response) {
         const transaction = result.data.transaction
         const {trasnsac, trasactionDetails, valueDecoded} = await ShowTransaction(transaction, keyPairUser);
         const pix = await CreatePix(300, cpf, name, valueDecoded )
-        existTransferPayment(trasnsac, pix.responsePix.txid, keyPairUser)
         res.status(200).send(pix);
-        
+        await existTransferPayment(trasnsac, pix.responsePix.txid, keyPairUser)
         return;
     } catch (error: any) {
         res.status(400).send(error.message)
@@ -75,10 +74,8 @@ export async function ParseURL(req: Request, res: Response) {
         }
         let value: number = parsedUrl.amount?.toNumber()
         const pix = await CreatePix(300, cpf, name, value)
-        verifyTransferPayment(pix.responsePix.txid, parsedUrl, keyPairUser)
-        console.log(1)
         res.status(200).send(pix);
-        console.log(2)
+        await verifyTransferPayment(pix.responsePix.txid, parsedUrl, keyPairUser)
         
     } catch (error) {
         console.log(error)

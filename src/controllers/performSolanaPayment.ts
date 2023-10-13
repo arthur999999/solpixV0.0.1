@@ -37,6 +37,7 @@ export async function existTransferPayment(transaction: Transaction, txid: strin
             }
         }
         
+        return
     } catch (e) {
         console.log(e)
     }
@@ -47,14 +48,12 @@ export async function existTransferPayment(transaction: Transaction, txid: strin
 export async function verifyTransferPayment(txid: string , url: TransferRequestURL, keypairUser: Keypair) {
 
     try {
-        console.log('enter payment')
         let payed = false
         let closed = 0
         let confirmPayed = false
         const interval = setInterval(check, 5000)
 
         async function check() {
-            console.log('enter check')
             if(confirmPayed){
                 clearInterval(interval)
                 return;
@@ -80,7 +79,7 @@ export async function verifyTransferPayment(txid: string , url: TransferRequestU
             
         }
         
-        
+        return
     } catch (error) {
         console.log(error)
     }
