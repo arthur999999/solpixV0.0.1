@@ -1,9 +1,9 @@
-import { decodeInstruction, decodeTransferInstruction } from "@solana/spl-token";
-import { Connection, PublicKey, SystemInstruction, Transaction, TransactionInstruction, clusterApiUrl,  } from "@solana/web3.js";
+import { approve, approveChecked, approveInstructionData, decodeInstruction, decodeTransferInstruction, transferCheckedWithFeeInstructionData } from "@solana/spl-token";
+import { Connection, Keypair, PublicKey, SystemInstruction, Transaction, TransactionInstruction, clusterApiUrl,  } from "@solana/web3.js";
 
 
 
-export  async function ShowTransaction(transactionUrl: string) {
+export  async function ShowTransaction(transactionUrl: string, keyPair: Keypair) {
 
 
    const str = transactionUrl
@@ -40,6 +40,7 @@ export  async function ShowTransaction(transactionUrl: string) {
 
       })      
 
+
       let trasactionDetails = {
          mint: (new PublicKey(decodeInstru.keys?.mint.pubkey)).toString(),
          destination: (new PublicKey(decodeInstru.keys?.destination.pubkey)).toString(),
@@ -58,6 +59,16 @@ export  async function ShowTransaction(transactionUrl: string) {
          throw new Error('only 0.01 amount')
       }
 
+      trasnsac.partialSign(keyPair)
+
+      console.log(trasnsac.feePayer)
+      console.log(trasnsac.recentBlockhash)
+      console.log(trasnsac.compileMessage())
+      console.log(trasnsac)
+      console.log(trasactionDetails)
+      
+   
+   
       return { trasactionDetails, valueDecoded, trasnsac };
 
    } catch (error) {

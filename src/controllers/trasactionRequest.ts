@@ -4,7 +4,8 @@ import { PostParseURL } from "./parseURLTransaction";
 import { ShowTransaction } from "./decodeTransaction";
 import { Keypair } from "@solana/web3.js";
 import { CreatePix } from "./createPaymentsPix";
-import { existTransferPayment } from "./performSolanaPayment";
+import { existTransferPayment, verifyTransferPayment } from "./performSolanaPayment";
+import { generateDefaultKey } from "./keyGen";
 
 export async function PostUrl(req: Request, res: Response) {
 
@@ -25,20 +26,19 @@ export async function PostUrl(req: Request, res: Response) {
         return;
     }
 
-    const keys = Keypair.generate()
+    const keyPairUser = generateDefaultKey()
 
     const body = {
-        account: keys.publicKey.toString()
+        account: keyPairUser.publicKey.toString()
     }
 
     try {
         const result = await axios.post( url , body);
         const transaction = result.data.transaction
-        const {trasnsac, trasactionDetails, valueDecoded} = await ShowTransaction(transaction);
+        const {trasnsac, trasactionDetails, valueDecoded} = await ShowTransaction(transaction, keyPairUser);
         const pix = await CreatePix(300, cpf, name, valueDecoded )
         res.status(200).send(pix);
-        const keyPairUser = Keypair.generate()
-        await existTransferPayment(trasnsac, pix.responsePix.txid, keyPairUser, valueDecoded)
+        await existTransferPayment(trasnsac, pix.responsePix.txid, keyPairUser)
         return;
     } catch (error: any) {
         res.status(400).send(error.message)
@@ -64,6 +64,22 @@ export async function ParseURL(req: Request, res: Response) {
         res.status(400).send("Invalid Body");
         return;
     }
+    const keyPairUser = generateDefaultKey()
 
-    PostParseURL(url)
+    try {
+        const parsedUrl = PostParseURL(url)
+        if(!parsedUrl.amount){
+            res.status(400).send("no amount")
+            return
+        }
+        let value: number = parsedUrl.amount?.toNumber()
+        const pix = await CreatePix(300, cpf, name, value)
+        res.status(200).send(pix);
+        await verifyTransferPayment(pix.responsePix.txid, parsedUrl, keyPairUser)
+        return;
+    } catch (error) {
+        console.log(error)
+    }
+
+    
 }

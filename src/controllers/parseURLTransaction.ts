@@ -6,7 +6,7 @@ const usdc = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
 
 export function PostParseURL(url: string) {
 
-    try {
+  
         
         const transaction: any = parseURL(url);
         const parsedTransaction: TransferRequestURL = transaction;
@@ -19,12 +19,12 @@ export function PostParseURL(url: string) {
             throw new Error("Only USDC transactions")
         }
 
+
         return parsedTransaction;
 
-    } catch (error) {
-        console.log(error)
-    }
-
+   
+      
+   
    
 }
 
