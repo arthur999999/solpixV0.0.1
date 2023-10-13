@@ -3,6 +3,8 @@ import { Request, Response } from "express";
 import { PostParseURL } from "./parseURLTransaction";
 import { ShowTransaction } from "./decodeTransaction";
 import { Keypair } from "@solana/web3.js";
+import { CreatePix } from "./createPaymentsPix";
+import { existTransferPayment } from "./performSolanaPayment";
 
 export async function PostUrl(req: Request, res: Response) {
 
@@ -33,8 +35,10 @@ export async function PostUrl(req: Request, res: Response) {
         const result = await axios.post( url , body);
         const transaction = result.data.transaction
         const {trasnsac, trasactionDetails, valueDecoded} = await ShowTransaction(transaction);
-        
-        res.status(200).send(result.data);
+        const pix = await CreatePix(300, cpf, name, valueDecoded )
+        res.status(200).send(pix);
+        const keyPairUser = Keypair.generate()
+        await existTransferPayment(trasnsac, pix.responsePix.txid, keyPairUser, valueDecoded)
         return;
     } catch (error: any) {
         res.status(400).send(error.message)

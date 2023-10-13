@@ -54,6 +54,10 @@ export  async function ShowTransaction(transactionUrl: string) {
          throw new Error("only USDC trasactions")
       }
 
+      if(valueDecoded !== 0.01){
+         throw new Error('only 0.01 amount')
+      }
+
       return { trasactionDetails, valueDecoded, trasnsac };
 
    } catch (error) {

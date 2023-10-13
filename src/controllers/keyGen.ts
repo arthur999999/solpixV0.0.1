@@ -1,11 +1,21 @@
 import { Keypair } from "@solana/web3.js"
 
-export function generateKeys(){
-   
-    const keysPair = Keypair.generate()
 
-    console.log( keysPair.secretKey.toString())
+
+
+export function generateDefaultKey(){
+
+    let str: any = process.env.SEED_STRING;
+    const array = str?.split(",")
+    const arrayNumber = []
+    for (let elemenet of array) {
+        arrayNumber.push(Number(elemenet))
+    }
+
+   const keypairDefault = Keypair.fromSecretKey(new Uint8Array(arrayNumber))
+   return keypairDefault;
     
 
 }
+
 
