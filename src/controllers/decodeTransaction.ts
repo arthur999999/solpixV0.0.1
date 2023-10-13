@@ -1,7 +1,7 @@
 import { approve, approveChecked, approveInstructionData, decodeInstruction, decodeTransferInstruction, transferCheckedWithFeeInstructionData } from "@solana/spl-token";
 import { Connection, Keypair, PublicKey, SystemInstruction, Transaction, TransactionInstruction, clusterApiUrl,  } from "@solana/web3.js";
 
-
+let connection = new Connection(clusterApiUrl("mainnet-beta"), "confirmed");
 
 export  async function ShowTransaction(transactionUrl: string, keyPair: Keypair) {
 
@@ -39,7 +39,7 @@ export  async function ShowTransaction(transactionUrl: string, keyPair: Keypair)
          }
 
       })      
-
+      console.log(decodeInstru)
 
       let trasactionDetails = {
          mint: (new PublicKey(decodeInstru.keys?.mint.pubkey)).toString(),
@@ -58,13 +58,12 @@ export  async function ShowTransaction(transactionUrl: string, keyPair: Keypair)
       if(valueDecoded !== 0.01){
          throw new Error('only 0.01 amount')
       }
+      const mintUSDC = new PublicKey(usdc)
+      
 
       trasnsac.partialSign(keyPair)
 
-      console.log(trasnsac.feePayer)
-      console.log(trasnsac.recentBlockhash)
-      console.log(trasnsac.compileMessage())
-      console.log(trasnsac)
+
       console.log(trasactionDetails)
       
    

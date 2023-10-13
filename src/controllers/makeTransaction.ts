@@ -10,6 +10,11 @@ export async function signAndSend(transactionSend: Transaction, keypairGenerated
     try {
     
 
+
+        transactionSend.recentBlockhash = (await connection.getLatestBlockhash()).blockhash
+
+        
+
         const tx = transactionSend.serialize()
 
 

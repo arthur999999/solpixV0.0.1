@@ -1,6 +1,6 @@
 import { TransferRequestURL,  createTransfer,  parseURL } from "@solana/pay";
 
-let str1 = "solana:GvHeR432g7MjN9uKyX3Dzg66TqwrEWgANLnnFZXMeyyj?amount=1&spl-token=EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v&reference=72FrP58fnrD24Fo48jKR2PoyjjaTcKQJHM9inPV6TFGn&label=Solana%20Pay"
+
 
 const usdc = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
 
