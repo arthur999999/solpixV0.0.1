@@ -1,0 +1,57 @@
+.regis {
+    background-color: #8753f3;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.regis h2 {
+    font-size: 3rem;
+    font-family: 'League Spartan';
+    font-weight: 700;
+    letter-spacing: -0.1rem;
+}
+
+.regis div {
+    display: flex;
+    flex-direction: column;
+}
+
+.regis div input{
+    background-color: #ba98fd;
+    outline: none;
+    color: black;
+    font-weight: 700;
+    font-size: 1.6rem;
+    font-family: 'League Spartan';
+    border: none;
+    width: 20rem;
+    padding-left: 1rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    border-radius: 1rem;
+    margin-top: 1rem;
+
+}
+
+.regis div input::placeholder {
+    color: rgb(43, 43, 43);
+}
+
+.regis button {
+    font-size: 2rem;
+    font-family: 'League Spartan';
+    font-weight: 700;
+    letter-spacing: -0.1rem;
+    width: 17rem;
+    height: 3rem;
+    background-color: #4de578;
+    border: none;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+

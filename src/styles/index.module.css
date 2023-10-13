@@ -1,0 +1,44 @@
+.index {
+    background-image: url(../../public/imagens/FUNDO\ PRINCIPAL.svg);
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 14rem;
+    overflow-x: hidden;
+}
+
+.index h2 {
+    font-size: 6rem;
+    font-family: 'League Spartan';
+    font-weight: 800;
+    letter-spacing: -0.2rem;
+}
+
+.index h3 {
+    font-size: 2rem;
+    font-family: 'League Spartan';
+    font-weight: 600;
+    margin-top: -1.4rem;
+    letter-spacing: -0.1rem;
+}
+
+.index button{
+    font-size: 3rem;
+    font-family: 'League Spartan';
+    font-weight: 700;
+    width: 16rem;
+    border: none;
+    height: 5rem;
+    margin-top: 3rem;
+    border-radius: 3rem;
+    background-color: #8753f3;
+}
+
+.how img {
+   padding-top: 14rem;
+   padding-left: 18rem;
+}
