@@ -48,7 +48,7 @@ export async function existTransferPayment(transaction: Transaction, txid: strin
 export async function verifyTransferPayment(txid: string , url: TransferRequestURL, keypairUser: Keypair) {
 
     try {
-
+        console.log('enter payment')
         let payed = false
         let closed = 0
         let confirmPayed = false
@@ -76,6 +76,7 @@ export async function verifyTransferPayment(txid: string , url: TransferRequestU
             if(closed > 60 || payed) {
                 clearInterval(interval)
             }
+            console.log('not payed')
             
         }
         
