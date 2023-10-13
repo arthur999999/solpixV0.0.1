@@ -21,10 +21,9 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@coral-xyz/anchor": "^0.28.1-beta.2",
     "@solana/pay": "^0.2.5",
     "@solana/spl-token": "^0.3.8",
-    "@solana/web3.js": "^1.87.0",
+    "@solana/web3.js": "^1.87.1",
     "axios": "^1.5.1",
     "base58": "^2.0.1",
     "bigint-buffer": "^1.1.5",
