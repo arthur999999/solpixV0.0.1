@@ -46,7 +46,10 @@ export async function existTransferPayment(transaction: Transaction, txid: strin
 }
 
 export async function verifyTransferPayment(txid: string , url: TransferRequestURL, keypairUser: Keypair) {
-    let payed = false
+
+    try {
+
+        let payed = false
         let closed = 0
         let confirmPayed = false
         const interval = setInterval(check, 5000)
@@ -76,4 +79,8 @@ export async function verifyTransferPayment(txid: string , url: TransferRequestU
         }
         
         return
+    } catch (error) {
+        console.log(error)
+    }
+   
 }
