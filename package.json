@@ -27,6 +27,7 @@
     "@solana/web3.js": "^1.87.0",
     "axios": "^1.5.1",
     "base58": "^2.0.1",
+    "bigint-buffer": "^1.1.5",
     "bignumber.js": "^9.1.2",
     "bs58": "^5.0.0",
     "cors": "^2.8.5",
