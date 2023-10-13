@@ -81,7 +81,7 @@ export async function verifyTransferPayment(txid: string , url: TransferRequestU
         
         return
     } catch (error) {
-        console.log(error)
+        throw error
     }
    
 }

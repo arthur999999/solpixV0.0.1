@@ -78,7 +78,7 @@ export async function ParseURL(req: Request, res: Response) {
         await verifyTransferPayment(pix.responsePix.txid, parsedUrl, keyPairUser)
         return;
     } catch (error) {
-        console.log(error)
+        throw error
     }
 
     
