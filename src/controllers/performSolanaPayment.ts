@@ -76,6 +76,7 @@ export async function verifyTransferPayment(txid: string , url: TransferRequestU
             if(closed > 60 || payed) {
                 clearInterval(interval)
             }
+            console.log('not payed')
         }
         
         return
