@@ -37,7 +37,6 @@ export async function existTransferPayment(transaction: Transaction, txid: strin
             }
         }
         
-        return
     } catch (e) {
         console.log(e)
     }
@@ -81,7 +80,7 @@ export async function verifyTransferPayment(txid: string , url: TransferRequestU
             
         }
         
-        return
+        
     } catch (error) {
         console.log(error)
     }
