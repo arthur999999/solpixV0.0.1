@@ -20,7 +20,6 @@ export default function PixPage(){
            setTxid(res.data.responsePix.txid)
            
         }).catch((e)=> {
-            setTest(e.message)
             console.log(e)
         })
         

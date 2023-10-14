@@ -53,5 +53,7 @@
     border: none;
     margin-top: 2rem;
     margin-bottom: 3rem;
+    color: black;
+    border-radius: 2rem;
 }
 

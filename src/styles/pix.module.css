@@ -46,6 +46,8 @@
     height: 3.5rem;
     border: none;
     background-color: #4de578;
+    color: black;
+    border-radius: 2rem;
 }
 
 .pix h1 {
