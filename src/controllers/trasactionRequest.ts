@@ -68,6 +68,7 @@ export async function ParseURL(req: Request, res: Response) {
 
     try {
         const parsedUrl = PostParseURL(url)
+        console.log(parsedUrl)
         if(!parsedUrl.amount){
             res.status(400).send("no amount")
             return

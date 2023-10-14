@@ -123,16 +123,6 @@ export default async function createURLtx(payer: Keypair, url: TransferRequestUR
         const senderInfo = await connection.getAccountInfo(payer.publicKey);
         if (!senderInfo) throw new Error('sender not found');
 
-        const senderAccount = await getOrCreateAssociatedTokenAccount(connection, payer, splToken, payer.publicKey);
-
-        if (!senderAccount.isInitialized) throw new Error('sender not initialized');
-        if (senderAccount.isFrozen) throw new Error('sender frozen');
-
-
-        const merchantAccount = await getOrCreateAssociatedTokenAccount(connection, payer , splToken, recipient)
-        
-        if (!merchantAccount.isInitialized) throw new Error('merchant not initialized');
-        if (merchantAccount.isFrozen) throw new Error('merchant frozen');
 
         const tx = await createTransfer(connection, payer.publicKey, { recipient, amount, splToken, reference, memo })
 

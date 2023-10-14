@@ -66,7 +66,6 @@ export async function checkThePix(txid: string) {
         return responseVerifyPix;
     } catch (error: any) {
         console.log(error)
-        throw new Error(error.mensagem);
     }
 }
 
