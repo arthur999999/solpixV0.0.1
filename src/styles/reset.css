@@ -59,3 +59,22 @@ a:visited {
 * {
 	overflow-x: hidden;
 }
+
+a:link {
+    color: rgb(0, 0, 0);
+ }
+ 
+ /* link que foi visitado */
+a:visited {
+     color:black;
+ }
+ 
+ /* mouse over */
+a:hover {
+     color: #000000;
+ }
+ 
+ /* link selecionado */
+a:active {
+     color: #000000;
+ }

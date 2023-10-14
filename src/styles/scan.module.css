@@ -1,0 +1,33 @@
+.scan video{
+    width: 20rem;
+}
+
+.scan {
+    width: 100vw;
+    height: 100vh;
+    background-color: #8753f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.scan button{
+
+    font-size: 2rem;
+    font-family: 'League Spartan';
+    font-weight: 600;
+    height: 4rem;
+    width: 15rem;
+    border-radius: 2rem;
+    border: none;
+    background-color: #4de578;
+}
+
+.hiddenbutton{
+    display: none;
+}
+
+.show {
+    display: block;
+}

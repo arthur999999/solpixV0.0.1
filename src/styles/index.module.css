@@ -7,7 +7,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 14rem;
+    padding-top: 5rem;
     overflow-x: hidden;
 }
 
@@ -42,3 +42,22 @@
    padding-top: 14rem;
    padding-left: 18rem;
 }
+
+.index a:link {
+    color: rgb(0, 0, 0);
+ }
+ 
+ /* link que foi visitado */
+.index  a:visited {
+     color:black;
+ }
+ 
+ /* mouse over */
+.index a:hover {
+     color: #000000;
+ }
+ 
+ /* link selecionado */
+.index a:active {
+     color: #000000;
+ }
