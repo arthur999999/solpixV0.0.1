@@ -9,9 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@solana/pay": "^0.2.5",
+    "@solana/web3.js": "^1.87.1",
+    "axios": "^1.5.1",
+    "bignumber.js": "^9.1.2",
+    "dotenv": "^16.3.1",
+    "encoding": "^0.1.13",
+    "http-proxy-middleware": "^2.0.6",
+    "next": "13.5.4",
+    "qr-scanner": "^1.4.2",
     "react": "^18",
-    "react-dom": "^18",
-    "next": "13.5.4"
+    "react-dom": "^18"
   },
   "devDependencies": {
     "eslint": "^8",

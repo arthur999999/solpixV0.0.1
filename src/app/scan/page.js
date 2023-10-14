@@ -5,12 +5,14 @@ import { useEffect } from "react";
 import QrScanner from "qr-scanner";
 import styled from "../../styles/scan.module.css"
 import { useUserContext } from "../context/userContext";
+import { useRouter } from "next/navigation";
 
 export default function Scan(){
     const [qrScanner, setQrScanner] = useState(null)
     const [hidden, setHidden] = useState(styled.show)
     const [trava, setTrava] = useState(false)
     const { link, handleLinkChange} = useUserContext()
+    const router = useRouter()
 
     useEffect(() => {
         const theScanner =  new QrScanner(
@@ -35,6 +37,8 @@ export default function Scan(){
       const linkDetect = decodedString.data
       console.log(linkDetect)
       handleLinkChange(linkDetect)
+      router.push('/pix')
+      
       setTrava(false)
       
     }

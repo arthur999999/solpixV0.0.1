@@ -1,0 +1,38 @@
+.confi{
+    background-color: #8753f3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    
+}
+
+.confi * {
+    overflow: hidden;
+}
+
+.confi h2 {
+    margin-top: 4rem;
+    font-size: 3rem;
+    text-align: center;
+    font-family: 'League Spartan';
+    font-weight: 700;
+}
+
+.confi h3 {
+    font-size: 3rem;
+    text-align: center;
+    font-family: 'League Spartan';
+    font-weight: 700;
+    color: #4de578;
+    margin-bottom: 5rem;
+}
+
+.confi p {
+    font-size: 1.7rem;
+    text-align: center;
+    font-family: 'League Spartan';
+    font-weight: 600;
+}

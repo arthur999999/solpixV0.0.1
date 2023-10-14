@@ -7,6 +7,7 @@ export const UserProvider = ({children}) => {
     const [name, setName] = useState("")
     const [cpf, setCpf] = useState("")
     const [link, setLink] = useState("")
+    const [txid, setTxid] = useState("")
 
     const handleNameChange = useCallback((name) => {
         setName(name)
@@ -19,9 +20,13 @@ export const UserProvider = ({children}) => {
     const handleLinkChange = useCallback((name) => {
         setLink(name)
     }, [])
+    
+    const handleTxidChange = useCallback((name)=> {
+        setTxid(name)
+    }, [])
 
     return (
-        <userContext.Provider value={{ name, handleNameChange, cpf, handleCpfChange, link, handleLinkChange }}>
+        <userContext.Provider value={{ name, handleNameChange, cpf, handleCpfChange, link, handleLinkChange, txid, setTxid }}>
             {children}
         </userContext.Provider>
     )
